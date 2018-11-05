@@ -1,5 +1,17 @@
 package demo.base.op;
 
-public class QueryOp  extends Op {
+import java.io.IOException;
+import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+
+import demo.base.op.mapper.Range;
+
+public class QueryOp  extends Op {
+	public void query() throws IOException
+	{
+		SqlSession session = getSession();
+		session.selectList("base.query");
+//		System.out.println(list.size());
+	}
 }

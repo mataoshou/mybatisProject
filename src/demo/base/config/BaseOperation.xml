@@ -22,4 +22,7 @@
 	<delete id="delete">
 		${_parameter}
 	</delete>
+	<select id="query" resultMap="demo.base.op.mapper.Range">
+		SELECT * FROM `range`
+	</select>
 </mapper>
