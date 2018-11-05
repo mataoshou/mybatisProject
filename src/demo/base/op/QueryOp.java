@@ -11,7 +11,8 @@ public class QueryOp  extends Op {
 	public void query() throws IOException
 	{
 		SqlSession session = getSession();
-		session.selectList("base.query");
-//		System.out.println(list.size());
+		List<Range> list = session.selectList("base.query");
+		System.out.println(list.size());
+		session.close();
 	}
 }
