@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="base">
+	<insert id="insert">
+		insert into `range` (`RangeName`,`type`) value(#{RangeName},#{type})
+		<selectKey resultType="int" keyProperty="id" order="AFTER">
+        	SELECT LAST_INSERT_ID()
+    	</selectKey>
+	</insert>
+	
+	<insert id="insert2">
+		${_parameter}
+		<selectKey resultType="int" keyProperty="id" order="AFTER">
+        	SELECT LAST_INSERT_ID()
+    	</selectKey>
+	</insert>
+	<update id="update">
+		${_parameter}
+	</update>
+	<delete id="delete">
+		${_parameter}
+	</delete>
+</mapper>

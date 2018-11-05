@@ -15,7 +15,6 @@
     </environment>
   </environments>
   <mappers>
-  	<mapper resource="BaseOperation.xml"/>
-  	<mapper class="com.atguigu.mybatis.test3.UserMapper"/>
+  	<mapper resource="demo/base/config/BaseOperation.xml"/>
   </mappers>
 </configuration>
