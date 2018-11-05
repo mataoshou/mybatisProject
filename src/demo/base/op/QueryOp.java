@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import demo.base.op.mapper.Range;
+import demo.base.op.pojo.Range;
 
 public class QueryOp  extends Op {
 	public void query() throws IOException

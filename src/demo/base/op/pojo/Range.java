@@ -1,4 +1,4 @@
-package demo.base.op.mapper;
+package demo.base.op.pojo;
 
 public class Range {
 	private int id;

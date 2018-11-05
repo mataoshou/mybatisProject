@@ -3,7 +3,7 @@ package demo.base.op;
 import java.io.IOException;
 import java.util.List;
 
-import demo.base.op.mapper.Range;
+import demo.base.op.pojo.Range;
 
 public class Main {
 	public static void main(String [] args) throws IOException
