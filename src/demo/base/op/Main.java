@@ -3,6 +3,8 @@ package demo.base.op;
 import java.io.IOException;
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+
 import demo.base.op.pojo.Range;
 
 public class Main {
@@ -17,7 +19,16 @@ public class Main {
 //		QueryOp query =new QueryOp();
 //		query.query();
 		
-		UpdateOp update =new UpdateOp();
-		update.update();
+//		UpdateOp update =new UpdateOp();
+//		update.update();
+		
+		int count =0;
+		while(true)
+		{
+			BaseTBDao dao =new BaseTBDao();
+			dao.getBaseTB();
+			System.out.println(".........."+(count++));
+		}
 	}
+
 }

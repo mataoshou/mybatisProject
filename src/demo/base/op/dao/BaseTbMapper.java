@@ -1,5 +1,7 @@
 package demo.base.op.dao;
 
+import demo.base.op.pojo.BaseTB;
+
 public interface BaseTbMapper {
-	void getBaseTB();
+	BaseTB getBaseTB(int id);
 }
