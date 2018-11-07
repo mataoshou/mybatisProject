@@ -25,7 +25,7 @@ public class BaseTBDao {
 	}
 	public void getBaseTB() throws IOException
 	{
-		SqlSession session = Op.single();
+		SqlSession session = Op.openSession();
 		mapper = session.getMapper(BaseTbMapper.class);
         //调用查询方法
 		BaseTB tb =mapper.getBaseTB(1);
@@ -36,14 +36,14 @@ public class BaseTBDao {
 	
 	public void getColumns() throws IOException
 	{
-		SqlSession session = Op.single();
+		SqlSession session = Op.openSession();
 		Map map =new HashMap();
-		map.put("columns", "id,disName");
+		map.put("columns", "id,disName,bName");
 		List<BaseTB> list = session.selectList("getClumns",map);
 		
 		for(BaseTB tb :list)
 		{
-			System.out.println(tb.getId());
+			System.out.println(tb.getId() +"..." +tb.getbName());
 		}
 	}
 }

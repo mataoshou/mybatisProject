@@ -27,9 +27,24 @@ CREATE TABLE `basetb` (
   `disName` varchar(256) DEFAULT NULL COMMENT '展示名称',
   `connectId` int(11) DEFAULT NULL COMMENT '关联id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 /*Data for the table `basetb` */
+
+insert  into `basetb`(`id`,`bName`,`bType`,`disName`,`connectId`) values (1,'1',1,'1',1),(2,'2',2,'2',2);
+
+/*Table structure for table `basetb_attch` */
+
+DROP TABLE IF EXISTS `basetb_attch`;
+
+CREATE TABLE `basetb_attch` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tbId` int(11) DEFAULT NULL,
+  `tbcontent` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `basetb_attch` */
 
 /*Table structure for table `questions` */
 

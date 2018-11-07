@@ -7,9 +7,9 @@ import org.apache.ibatis.session.SqlSession;
 public class Op {
 	
 	public static Op one = null;
-	
+	//保证使用一个SqlSessionFactory
 	DBAccess access =new DBAccess();
-	public static SqlSession single() throws IOException
+	public static SqlSession openSession() throws IOException
 	{
 		if(one==null)
 		{
