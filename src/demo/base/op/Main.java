@@ -22,13 +22,16 @@ public class Main {
 //		UpdateOp update =new UpdateOp();
 //		update.update();
 		
-		int count =0;
-		while(true)
-		{
-			BaseTBDao dao =new BaseTBDao();
-			dao.getBaseTB();
-			System.out.println(".........."+(count++));
-		}
+//		int count =0;
+//		while(true)
+//		{
+//			BaseTBDao dao =new BaseTBDao();
+//			dao.getBaseTB();
+//			System.out.println(".........."+(count++));
+//		}
+		
+		BaseTBDao dao =new BaseTBDao();
+		dao.getColumns();
 	}
 
 }

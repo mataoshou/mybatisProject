@@ -3,7 +3,7 @@ package demo.base.op.pojo;
 public class BaseTB {
 	private int id;
 	private String bName;
-	private int type;
+	private int btype;
 	public int getId() {
 		return id;
 	}
@@ -16,11 +16,11 @@ public class BaseTB {
 	public void setbName(String bName) {
 		this.bName = bName;
 	}
-	public int getType() {
-		return type;
+	public int getBtype() {
+		return btype;
 	}
-	public void setType(int type) {
-		this.type = type;
+	public void setBtype(int btype) {
+		this.btype = btype;
 	}
 	
 	

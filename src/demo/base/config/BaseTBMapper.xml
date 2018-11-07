@@ -4,6 +4,10 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="demo.base.op.dao.BaseTbMapper">
 	<select id="getBaseTB" resultType="demo.base.op.pojo.BaseTB">
-		SELECT * FROM basetb WHERE id = #{id}
+		SELECT * FROM `basetb` WHERE id = #{id}
+	</select>
+	
+	<select id="getClumns" resultType="demo.base.op.pojo.BaseTB">
+		SELECT ${columns} FROM `basetb`
 	</select>
 </mapper>
