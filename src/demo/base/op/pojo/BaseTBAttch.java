@@ -1,20 +1,23 @@
 package demo.base.op.pojo;
 
 public class BaseTBAttch {
-	private int id;
-	private int tdId;
+	private int aid;
+	private int tbId;
 	private String tbcontent;
-	public int getId() {
-		return id;
+	
+	
+	public int getAid() {
+		return aid;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setAid(int aid) {
+		this.aid = aid;
 	}
-	public int getTdId() {
-		return tdId;
+	
+	public int getTbId() {
+		return tbId;
 	}
-	public void setTdId(int tdId) {
-		this.tdId = tdId;
+	public void setTbId(int tbId) {
+		this.tbId = tbId;
 	}
 	public String getTbcontent() {
 		return tbcontent;

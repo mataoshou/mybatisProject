@@ -10,4 +10,32 @@
 	<select id="getClumns" resultType="demo.base.op.pojo.BaseTB">
 		SELECT ${columns} FROM `basetb`
 	</select>
+	
+	<select id="getBaseTBAll" resultMap="BaseTbAllMapper">
+		select a.*,b.* from `basetb` b ,`basetb_attch` a where b.id = a.tbId
+	</select>
+	<!--一对多-->
+	<resultMap type="demo.base.op.pojo.BaseTB" id="BaseTbAllMapper">
+		<id column="id" property="id"/>
+		<result column="bName" property="bName"/>
+		<collection property="attch" ofType="demo.base.op.pojo.BaseTBAttch" column="id">
+			<id column="aid" property="aid"/><!-- 这里的column对应的是下面查询的别名，而不是表字段名 -->
+			<result column="tbId" property="tbId"/><!-- property对应JavaBean中的属性名 -->
+			<result column="tbcontent" property="tbcontent"/>
+		</collection>
+	</resultMap>
+	
+	<resultMap type="demo.base.op.pojo.BaseTB" id="BaseTBItemMapper">
+		<id column="id" property="id"/>
+		<result column="bName" property="bName"/>
+		<association property="item" column="id" select="getBaseItem"  javaType="demo.base.op.pojo.BaseTBItem"></association>
+	</resultMap>
+	
+	<select id="getBaseItem" resultType="demo.base.op.pojo.BaseTBItem" parameterType="int">
+		SELECT * FROM basetb_item WHERE tb_item_Id = #{id}
+	</select>
+	
+	<select id="getTBItem" resultMap="BaseTBItemMapper">
+		SELECT *  FROM basetb 
+	</select>
 </mapper>

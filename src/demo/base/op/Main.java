@@ -31,7 +31,9 @@ public class Main {
 //		}
 		
 		BaseTBDao dao =new BaseTBDao();
-		dao.getColumns();
+//		dao.getColumns();
+//		dao.getBaseTBAll();
+		dao.getItem();
 	}
 
 }
