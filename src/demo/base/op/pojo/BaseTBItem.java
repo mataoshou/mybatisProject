@@ -1,35 +1,36 @@
 package demo.base.op.pojo;
 
 public class BaseTBItem {
-	private int iid;
+	private int tb_i_id;
 	
-	private String td_item_icontent;
+	private String tb_i_connect;
 	
-	private int tb_item_Id;
+	private int tb_i_content;
 
-	public int getIid() {
-		return iid;
+	public int getTb_i_id() {
+		return tb_i_id;
 	}
 
-	public void setIid(int iid) {
-		this.iid = iid;
+	public void setTb_i_id(int tb_i_id) {
+		this.tb_i_id = tb_i_id;
 	}
 
-	public String getTd_item_icontent() {
-		return td_item_icontent;
+	public String getTb_i_connect() {
+		return tb_i_connect;
 	}
 
-	public void setTd_item_icontent(String td_item_icontent) {
-		this.td_item_icontent = td_item_icontent;
+	public void setTb_i_connect(String tb_i_connect) {
+		this.tb_i_connect = tb_i_connect;
 	}
 
-	public int getTb_item_Id() {
-		return tb_item_Id;
+	public int getTb_i_content() {
+		return tb_i_content;
 	}
 
-	public void setTb_item_Id(int tb_item_Id) {
-		this.tb_item_Id = tb_item_Id;
+	public void setTb_i_content(int tb_i_content) {
+		this.tb_i_content = tb_i_content;
 	}
+	
 	
 	
 }

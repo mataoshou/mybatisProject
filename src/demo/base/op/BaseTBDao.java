@@ -29,7 +29,7 @@ public class BaseTBDao {
 		mapper = session.getMapper(BaseTbMapper.class);
         //调用查询方法
 		BaseTB tb =mapper.getBaseTB(1);
-		System.out.println(tb.getbName());
+		System.out.println(tb.getTbName());
 		session.close();
 		
 	}
@@ -39,11 +39,11 @@ public class BaseTBDao {
 		SqlSession session = Op.openSession();
 		Map map =new HashMap();
 		map.put("columns", "id,disName,bName");
-		List<BaseTB> list = session.selectList("getClumns",map);
+		List<BaseTB> list = session.selectList("getColumns",map);
 		
 		for(BaseTB tb :list)
 		{
-			System.out.println(tb.getId() +"..." +tb.getbName());
+			System.out.println(tb.getTbId() +"..." +tb.getTbName());
 		}
 	}
 	
@@ -55,7 +55,7 @@ public class BaseTBDao {
 		
 		for(BaseTB tb :list)
 		{
-			System.out.println(tb.getId() +"..." +tb.getbName());
+			System.out.println(tb.getTbId() +"..." +tb.getTbName());
 			System.out.println(tb.getAttch().size());
 		}
 		session.close();
@@ -69,8 +69,8 @@ public class BaseTBDao {
 		
 		for(BaseTB tb :list)
 		{
-			System.out.println(tb.getId() +"..." +tb.getbName());
-			System.out.println(tb.getItem().getTd_item_icontent());
+			System.out.println(tb.getTbId() +"..." +tb.getTbName());
+			System.out.println(tb.getItem().getTb_i_content());
 		}
 		session.close();
 	}

@@ -3,12 +3,32 @@ package demo.base.op.pojo;
 import java.util.List;
 
 public class BaseTB {
-	private int id;
-	private String bName;
-	private int btype;
+	private int tbId;
+	private String tbName;
+	private int tbType;
 	
 	private BaseTBItem item;
 	
+	private List<BaseTBAttch> attch;
+	
+	public int getTbId() {
+		return tbId;
+	}
+	public void setTbId(int tbId) {
+		this.tbId = tbId;
+	}
+	public String getTbName() {
+		return tbName;
+	}
+	public void setTbName(String tbName) {
+		this.tbName = tbName;
+	}
+	public int getTbType() {
+		return tbType;
+	}
+	public void setTbType(int tbType) {
+		this.tbType = tbType;
+	}
 	public BaseTBItem getItem() {
 		return item;
 	}
@@ -21,25 +41,8 @@ public class BaseTB {
 	public void setAttch(List<BaseTBAttch> attch) {
 		this.attch = attch;
 	}
-	private List<BaseTBAttch> attch;
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getbName() {
-		return bName;
-	}
-	public void setbName(String bName) {
-		this.bName = bName;
-	}
-	public int getBtype() {
-		return btype;
-	}
-	public void setBtype(int btype) {
-		this.btype = btype;
-	}
+
+
 	
 	
 }

@@ -1,6 +1,6 @@
 /*
 SQLyog Ultimate v11.24 (32 bit)
-MySQL - 5.7.17-log : Database - sweet
+MySQL - 5.6.31 : Database - sweet
 *********************************************************************
 */
 
@@ -21,30 +21,43 @@ USE `sweet`;
 DROP TABLE IF EXISTS `basetb`;
 
 CREATE TABLE `basetb` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `bName` varchar(256) DEFAULT NULL COMMENT '用户名',
-  `bType` int(11) DEFAULT NULL,
-  `disName` varchar(256) DEFAULT NULL COMMENT '展示名称',
+  `tbId` int(11) NOT NULL AUTO_INCREMENT,
+  `tbName` varchar(256) DEFAULT NULL COMMENT '用户名',
+  `tbType` int(11) DEFAULT NULL,
+  `tbDisName` varchar(256) DEFAULT NULL COMMENT '展示名称',
   `connectId` int(11) DEFAULT NULL COMMENT '关联id',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`tbId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 /*Data for the table `basetb` */
 
-insert  into `basetb`(`id`,`bName`,`bType`,`disName`,`connectId`) values (1,'1',1,'1',1),(2,'2',2,'2',2);
+insert  into `basetb`(`tbId`,`tbName`,`tbType`,`tbDisName`,`connectId`) values (1,'1',1,'1',1),(2,'2',2,'2',2);
 
 /*Table structure for table `basetb_attch` */
 
 DROP TABLE IF EXISTS `basetb_attch`;
 
 CREATE TABLE `basetb_attch` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tbId` int(11) DEFAULT NULL,
-  `tbcontent` text,
-  PRIMARY KEY (`id`)
+  `tb_a_id` int(11) NOT NULL AUTO_INCREMENT,
+  `tb_a_connect` int(11) DEFAULT NULL COMMENT '关联字段',
+  `tb_a_content` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`tb_a_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `basetb_attch` */
+
+/*Table structure for table `basetb_item` */
+
+DROP TABLE IF EXISTS `basetb_item`;
+
+CREATE TABLE `basetb_item` (
+  `tb_i_id` int(11) NOT NULL AUTO_INCREMENT,
+  `tb_i_connect` int(11) DEFAULT NULL,
+  `tb_i_content` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`tb_i_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `basetb_item` */
 
 /*Table structure for table `questions` */
 

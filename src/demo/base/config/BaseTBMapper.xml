@@ -3,39 +3,45 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="demo.base.op.dao.BaseTbMapper">
+	<!-- 获取单个tb数据    id 查询的key   resultType 查询的返回结果 -->
 	<select id="getBaseTB" resultType="demo.base.op.pojo.BaseTB">
-		SELECT * FROM `basetb` WHERE id = #{id}
+		SELECT * FROM `basetb` WHERE tbId = #{id}
 	</select>
-	
-	<select id="getClumns" resultType="demo.base.op.pojo.BaseTB">
+	<!-- 获取tb的固定字段数据    id 查询的key   resultType 查询的返回结果 -->
+	<select id="getColumns" resultType="demo.base.op.pojo.BaseTB">
 		SELECT ${columns} FROM `basetb`
 	</select>
-	
-	<select id="getBaseTBAll" resultMap="BaseTbAllMapper">
-		select a.*,b.* from `basetb` b ,`basetb_attch` a where b.id = a.tbId
+	<!-- 获取tb与attch的关联数据    id 查询的key   resultMap 查询的返回结果集合 -->
+	<select id="getBaseTBFull" resultMap="BaseTbAttchMapper">
+		select a.*,b.* from `basetb` b ,`basetb_attch` a where b.tbId = a.tb_a_connect
 	</select>
+	
+	
+	<select id="getTBItem" resultType="demo.base.op.pojo.BaseTBItem" parameterType="int">
+		SELECT * FROM basetb_item WHERE tb_i_connect = #{id}
+	</select>
+	<!-- 获取tb与item的关联数据    id 查询的key   resultMap 查询的返回结果集合 -->
+	<select id="getTBAndItem" resultMap="BaseTBItemMapper">
+		SELECT * FROM basetb 
+	</select>
+	
 	<!--一对多-->
-	<resultMap type="demo.base.op.pojo.BaseTB" id="BaseTbAllMapper">
-		<id column="id" property="id"/>
-		<result column="bName" property="bName"/>
+	<resultMap type="demo.base.op.pojo.BaseTB" id="BaseTbAttchMapper">
+		<!-- column（数据库表字段）      property（pojo对象的属性） -->
+		<id column="tbId" property="tbId"/>
+		<result column="tbName" property="tbName"/>
 		<collection property="attch" ofType="demo.base.op.pojo.BaseTBAttch" column="id">
-			<id column="aid" property="aid"/><!-- 这里的column对应的是下面查询的别名，而不是表字段名 -->
-			<result column="tbId" property="tbId"/><!-- property对应JavaBean中的属性名 -->
-			<result column="tbcontent" property="tbcontent"/>
+			<id column="tb_a_id" property="tb_a_id"/>
+			<result column="tb_a_connect" property="tb_a_connect"/>
+			<result column="tb_a_content" property="tb_a_content"/>
 		</collection>
 	</resultMap>
-	
+	<!-- 一对一  或者 多对一 -->
 	<resultMap type="demo.base.op.pojo.BaseTB" id="BaseTBItemMapper">
 		<id column="id" property="id"/>
 		<result column="bName" property="bName"/>
-		<association property="item" column="id" select="getBaseItem"  javaType="demo.base.op.pojo.BaseTBItem"></association>
+		<association property="item" column="tbId" select="getTBItem"  javaType="demo.base.op.pojo.BaseTBItem"></association>
 	</resultMap>
 	
-	<select id="getBaseItem" resultType="demo.base.op.pojo.BaseTBItem" parameterType="int">
-		SELECT * FROM basetb_item WHERE tb_item_Id = #{id}
-	</select>
-	
-	<select id="getTBItem" resultMap="BaseTBItemMapper">
-		SELECT *  FROM basetb 
-	</select>
+
 </mapper>
