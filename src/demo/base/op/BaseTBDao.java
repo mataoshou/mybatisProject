@@ -65,7 +65,7 @@ public class BaseTBDao {
 	public void getItem() throws IOException
 	{
 		SqlSession session = Op.openSession();
-		List<BaseTB> list = session.selectList("getTBItem");
+		List<BaseTB> list = session.selectList("getTBAndItem");
 		
 		for(BaseTB tb :list)
 		{

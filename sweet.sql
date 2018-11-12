@@ -42,9 +42,11 @@ CREATE TABLE `basetb_attch` (
   `tb_a_connect` int(11) DEFAULT NULL COMMENT '关联字段',
   `tb_a_content` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`tb_a_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `basetb_attch` */
+
+insert  into `basetb_attch`(`tb_a_id`,`tb_a_connect`,`tb_a_content`) values (1,1,'111'),(2,2,'2222'),(3,2,'33333');
 
 /*Table structure for table `basetb_item` */
 
@@ -55,9 +57,11 @@ CREATE TABLE `basetb_item` (
   `tb_i_connect` int(11) DEFAULT NULL,
   `tb_i_content` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`tb_i_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 /*Data for the table `basetb_item` */
+
+insert  into `basetb_item`(`tb_i_id`,`tb_i_connect`,`tb_i_content`) values (1,1,'qwe'),(2,2,'asd');
 
 /*Table structure for table `questions` */
 
