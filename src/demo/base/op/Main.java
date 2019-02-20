@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import demo.base.op.pojo.Range;
 
 public class Main {
-	public static void main(String [] args) throws IOException
+	public static void main(String [] args) throws IOException, InterruptedException
 	{
 //		DeleteOp delete =new DeleteOp();
 //		delete.delete();
@@ -33,7 +33,7 @@ public class Main {
 		BaseTBDao dao =new BaseTBDao();
 //		dao.getColumns();
 //		dao.getBaseTBAll();
-		dao.getItem();
+		dao.listTB();
 	}
 
 }

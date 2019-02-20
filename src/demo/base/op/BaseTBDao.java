@@ -62,16 +62,55 @@ public class BaseTBDao {
 	}
 	
 	
-	public void getItem() throws IOException
+	public void getItem() throws IOException, InterruptedException
 	{
 		SqlSession session = Op.openSession();
 		List<BaseTB> list = session.selectList("getTBAndItem");
-		
-		for(BaseTB tb :list)
+		while(true)
 		{
-			System.out.println(tb.getTbId() +"..." +tb.getTbName());
-			System.out.println(tb.getItem().getTb_i_content());
+			for(BaseTB tb :list)
+			{
+				System.out.println(tb.getTbId() +"..." +tb.getTbName());
+				System.out.println(tb.getItem().getTb_i_content());
+			}
+			System.out.println("................................");
+			Thread.sleep(1000);
+			if(false)break;
 		}
 		session.close();
+	}
+	
+	public void listTB() throws IOException, InterruptedException
+	{
+		SqlSession session = Op.openSession();
+		List<BaseTB> list = session.selectList("getTBList");
+		while(true)
+		{
+			for(BaseTB tb :list)
+			{
+				System.out.println(tb.getTbId() +"..." +tb.getTbName());
+			}
+			System.out.println("................................");
+			Thread.sleep(1000);
+			if(false)break;
+			session.commit();
+		}
+		session.close();
+		
+	}
+	
+	public void inserItem() throws IOException
+	{
+		SqlSession session = Op.openSession();
+		session.insert("insertTB");
+		session.commit();
+		
+		session.close();
+	}
+	
+	public static void main(String[] args) throws IOException
+	{
+		BaseTBDao dao =new BaseTBDao();
+		dao.inserItem();
 	}
 }

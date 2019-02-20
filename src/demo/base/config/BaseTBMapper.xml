@@ -25,6 +25,15 @@
 		SELECT * FROM basetb 
 	</select>
 	
+	
+	<select id="getTBList" resultType="demo.base.op.pojo.BaseTB" flushCache="true">
+		SELECT * FROM `basetb`
+	</select>
+	
+	<insert id="insertTB" >
+		insert  into `basetb`(`tbName`,`tbType`,`tbDisName`,`connectId`) values ('3',3,'3',3);
+	</insert>
+	
 	<!--一对多-->
 	<resultMap type="demo.base.op.pojo.BaseTB" id="BaseTbAttchMapper">
 		<!-- column（数据库表字段）      property（pojo对象的属性） -->
